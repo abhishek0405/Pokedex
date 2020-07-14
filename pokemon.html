@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- CSS only -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	
+	<style>
+		img
+		{
+			
+			width:241px;
+			height:161px;
+			position: relative;
+			left:-63px;
+			top:160px;
+		}
+		input[type=file]
+		{
+			width:102px;
+			height:37px;
+			position:relative;
+			top:310px;
+			left:86px;
+			padding:10px;
+			background-color:white;
+			font-size:105%;
+			border:none;
+		}
+		body
+		{
+
+			
+			background-size: 100%;
+			/*background-image:linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ),url('pokemon.jpg');*/
+
+			background:url("bg5.jpeg");
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			
+
+			
+		}
+
+		#name1{
+
+		}
+		#name2{
+
+		}
+		#name3{
+
+		}
+		#name4{
+
+		}
+		#name5{
+
+		}
+
+		#name
+		{
+			background-color: none;
+			color:white;
+			width:240px;
+			height:90px;
+			position:absolute;
+			left:510px;
+			top:240px;
+			font-size:150%;
+		}
+
+		#currname{
+			left:520px;
+		}
+		#attack
+		{
+			background-color: none;
+			color:white;
+			width:110px;
+			height:40px;
+			position:absolute;
+			left:475px;
+			top:555px;
+			
+		}
+		#defence
+		{
+			background-color: none;
+			color:white;
+			width:110px;
+			height:40px;
+			position:absolute;
+			left:615px;
+			top:555px;
+		}
+
+		#finaloutput
+		{
+			width:241px;
+			height:161px;
+			position:relative;
+			top:-212px;
+			left:-419px;
+			display: none;
+			background-color: pink;
+		}
+		/*#instruct
+		{
+			position: relative;
+			top:400px;
+			left:-300px;
+			width: 250px;
+			font-size:30px;
+			background-color: #aa97ff;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 20px;
+			padding-right: 25px;
+			border-radius: 25%;
+		}*/
+		#teamwrapper
+		{
+			position:absolute;
+			left:100px;
+			top:-10px;
+			
+		}
+		.team
+		{
+			display: none;
+			margin-top:150px;
+
+
+		}
+		/*#teamtoggle
+		{
+			width:200px;
+			height: 50px;
+			background-color: #5F5F5F;
+			border:none;
+			font-size:20px;
+			color: gray;
+			position: absolute;
+			left:550px;
+			top:600px;
+
+		}*/
+		/*#predict
+		{
+			position: absolute;
+			left:350px;
+			top:300px;
+			width:200px;
+			height: 50px;
+			background-color: #5F5F5F;
+			border:none;
+			font-size:20px;
+			color: gray;
+		}*/
+		.teamimg
+		{
+			width:220px;
+			height:161px;
+			
+			margin-left: 30px;
+			margin-bottom: 30px;
+			border: 5px solid black;
+		}
+		#bg2
+		{
+			position: absolute;
+			z-index: -1;
+			height: 580px;
+			width: 780px;
+			top:47px;
+			left:-6px;
+			margin:0 auto;
+			border:2px solid black;
+
+
+		}
+
+		#fileuplaod{
+			top:480px;
+			left:92px;
+			background: #4ab062;
+			font-size: 100%;
+		}
+
+		#blah{
+			width:260px;
+			top:220px;
+			height:179px;
+			left:-50px;
+		}
+		#repos
+		{
+			position: absolute;
+			left:400px;
+			top:50px;
+		}
+
+		#file-upload-button{
+			background: green;
+		}
+
+		.showw{
+			display: none;
+
+		}
+
+		#opponent{
+			align-content: center;
+			left: 303px;
+    		top: 120px;
+
+		}
+		#ans{
+
+    font-size: 35px;
+    align-content: center;
+    padding-left: 320px;
+		}
+
+		/*popup exp*/
+		.modal-content {
+  	background-color: #f5bc42;
+  	margin: auto;
+  	padding: 20px;
+  	border: 1px solid #888;
+  	width: 60%;
+    height: 77%;
+    top: 100px;
+    border-radius: 5%;
+
+	}
+	#addmyteam{
+		width: 100px;
+    	height: 50px;
+    	margin-left: 480px;
+    	margin-top:465px;
+    	border-radius:15%;
+	}
+	#addopp{
+		width: 100px;
+    	height: 50px;
+    	margin-left: -5px;
+    	margin-top:465px;
+    	border-radius: 15%;
+	}
+	#ansimg{
+		left:263px;
+		top:80px;
+	}
+
+/* The Close Button */
+	.close {
+  	color: #aaaaaa;
+  	float: right;
+  	font-size: 28px;
+  	font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+		
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+
+</head>
+<body>
+	
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand"  href="#">Pokedex</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+
+      <a class="nav-item nav-link" href="#" id="oppmodal">Opponent Team</a>
+      <a class="nav-item nav-link " href="#" id="predict" >Predict</a>
+    </div>
+    <a class="nav-item nav-link"  id="modalbtn" href="#">My Team</a>
+</div>
+ <a class="nav-item nav-link showw" id="visi" style="color:white">My Team Members</a>
+
+ <div id="myModal" class="modal">
+
+ 	<!--src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"-->
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1 align="center">Your Team</h1>
+    <p></p>
+    <div id="teamwrapper" class="team" >
+
+	<img id="team1"  class="teamimg " ></img>
+	<img id="team2"  class="teamimg " ></img>
+	<img id="team3"  class="teamimg " ></img>
+	<img id="team4"  class="teamimg " ></img>
+	<img id="team5"  class="teamimg " ></img>
+	<img id="team6"  class="teamimg " ></img>
+	</div>
+  </div>
+
+</div>
+
+<div id="opmodal" class="modal">
+<div class="modal-content">
+    <span class="close" id="opclose">&times;</span>
+    <h1 align="center">Your Opponent</h1>
+    <p></p>
+    
+		<img id="opponent"  src="" ></img>
+
+</div>
+</div>
+
+<div id="predmodal" class="modal">
+<div class="modal-content">
+    <span class="close" id="ansclose">&times;</span>
+    <h1 align="center">Your Best Choice is:</h1>
+    <span id="ans">Blaziken</span>
+    
+		<img id="ansimg"  src="blazi.png" ></img>
+
+</div>
+</div>
+  
+
+</nav>
+<button class="btn btn-danger " id="addmyteam">MyTeam</button>
+<button class="btn btn-success" id="addopp">opponent</button>
+
+<div id="repos">
+	<input type='file' id="fileuplaod"  onchange="readURL(this);" />
+	<img id="blah" src="ball.png" alt="your image" />
+	<div id="bg2wrapper">
+		<img id="bg2" src="demo1.png">
+	</div>
+	<div id="name">
+		Pokemon's Name <span id="currname"></span>
+	</div>
+	<div id="attack">
+		Attack:  <span id="currattack" ></span>
+	</div>
+	<div id="defence">
+		Defense: <span id="currdefense"></span>
+	</div>
+</div>
+	<!--<div id="instruct">
+		<p id="instruction">Enter your pokemon</p>
+	</div>-->
+
+	<img id="finaloutput" src=""></img>
+
+	<!-- Team wrapper code
+	<div id="teamwrapper" class="team" >
+	<img id="team1"  class="teamimg " src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"></img>
+	<img id="team2"  class="teamimg " src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"></img>
+	<img id="team3"  class="teamimg " src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"></img>
+	<img id="team4"  class="teamimg " src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"></img>
+	<img id="team5"  class="teamimg " src=" https://lh3.googleusercontent.com/proxy/mx_Rf2z5ysXg-RCS513aI_f4fDlQMzj0NHbK2nv9wSCfYbSxUOn0LGIzBapSJcWPXLM6imU-7zjvk3Wv8JQENuefn1MVFn6TJuaNOJNE5j_8w8EYdUQFKP6Hmofwza-Gzw"></img>
+	</div>
+	-->
+	
+	<!--<button id="predict" class="team">Predict</button>-->
+	<script type="text/javascript">
+		var i=0;
+		var b=1;
+		var oc=0;
+		var arr=[0,0,0,0,0,0,0,0,0,0,0];
+		var imgnumber;
+		var finalurl="images/pokedex_upload.png";
+		
+		function showoutput(number)//currently doesnt use the argument number .. but will use to refer the image retirieved from ML algo
+		{
+			$("#finaloutput").attr("src","images/lina.jpg");
+			$("#finaloutput").show(); // put the final output pokemon (your final choice out of 5) here
+			
+		}
+
+		$('#modalbtn').click(function(){
+			$('#myModal').addClass('animate__animated animate__bounceInUp');
+			$('#myModal').css('display','block');
+			
+			
+        		$('#teamwrapper').removeClass("team");
+		})
+
+		$('#oppmodal').click(function(){
+			$('#opmodal').addClass('animate__animated animate__bounceInUp');
+			$('#opmodal').css('display','block');
+			
+        		$('#teamwrapper').removeClass("team");
+		})
+	
+
+		$('.close').first().click(function(){
+
+			$("#myModal").css('display','none');
+		})
+
+		$('#opclose').first().click(function(){
+			$("#opmodal").css('display','none');
+		})
+		$('#ansclose').first().click(function(){
+			$("#predmodal").css('display','none');
+		})
+
+		function readURL(input) 
+		{
+			
+			var filePath;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) 
+                {		 b=0;
+                		
+                    	$('#blah').attr('src', e.target.result);
+                    	$('#addmyteam').click(function(){
+                    		b=1;
+                    		
+                    		
+
+                    		$('#team'+i).attr('src',e.target.result);
+
+                    		
+
+                		})
+
+                		if(b==0){
+                			$('#addopp').click(function(){
+
+                				oc=1;
+                			$('#opponent').attr('src',e.target.result);
+                		})
+                		}
+
+
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+            filePath=$('#fileuplaod').val(); 
+            arr[i]=filePath;
+            i++;
+            if(b==0){
+            	i-=1;
+            }
+
+            
+            if(i==1)
+            {	
+            	$("#currname").html("Charizard");
+            	$('#currattack').html("84");
+            	$('#currdefense').html("78");
+            }
+            if(i==2)
+            {
+            	$("#currname").html("Squirtle");
+            	$('#currattack').html("48");
+            	$('#currdefense').html("65");
+            }
+            if(i==3)
+            {
+            	$("#currname").html("Blaziken");
+            	$('#currattack').html("120");
+            	$('#currdefense').html("70");
+            }
+            if(i==4)
+            {
+            	$("#currname").html("Gengar");
+            	$('#currattack').html("65");
+            	$('#currdefense').html("60");         }
+
+
+            if(i>4 && i<6)
+            {
+            	$("#currname").html("Pikachu");
+            	$('#currattack').html("55");
+            	$('#currdefense').html("40");
+            }
+            if(i>5)
+            {
+            	imgnumber="2";//to be retirived from ML algo
+            	$("#instruct").html("<p>Click on predict for results.</p>");
+            	
+            }
+        }
+        console.log(i);
+
+
+       /* $("#teamtoggle").click(function()
+        {
+        	
+        	$("#teamwrapper").slideToggle(500,'swing',function(){
+        		$(this).toggleClass("team");
+        		$("#visi").toggleClass("showw");
+        	});
+        });*/
+        
+        $("#predict").click(function()
+        {	if(i>=1 && oc==1){
+        	$("#instruct").html("<p>Your best option</p>");
+            	$('#predmodal').addClass('animate__animated animate__bounceInUp');
+			$('#predmodal').css('display','block');
+			
+        		$('#teamwrapper').removeClass("team");
+        	}
+        	else if(i<1){
+        		alert("please choose at least one pokemon");
+        	}
+        	else if(oc!=1){
+        		alert("choose one opponent");
+        	}
+        
+        });
+	</script>
+</body>
+</html>
